@@ -5,6 +5,10 @@ defaults:
   life_span: 1h
 
 volumes:
+  common_datasets:
+    remote: "storage:"
+    mount: /project/common_datasets
+    local: common_datasets
   data:
     remote: "storage:"
     mount: /project/data
@@ -36,7 +40,9 @@ jobs:
     action: gh:neuro-actions/jupyter@master
     args:
       volumes_data_remote: ${{ volumes.data.remote }}
+      volumes_common_datasets_remote: ${{ volumes.common_datasets.remote }}
       volumes_code_remote: ${{ volumes.code.remote }}
       volumes_config_remote: ${{ volumes.config.remote }}
       volumes_notebooks_remote: ${{ volumes.notebooks.remote }}
       volumes_results_remote: ${{ volumes.results.remote }}
+
