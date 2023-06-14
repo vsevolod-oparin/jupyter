@@ -35,6 +35,17 @@ args:
 	volumes_data_remote: ${{ volumes.data.remote }}
 ```
 
+### `volumes_common_datasets_remote`
+
+Reference to a data volume
+
+### Example
+
+```
+args:
+	volumes_common_datasets_remote: ${{ volumes.common_datasets.remote }}
+```
+
 ### `volumes_code_remote`
 
 Reference to a code volume
