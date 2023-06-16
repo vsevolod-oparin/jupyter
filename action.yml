@@ -6,8 +6,8 @@ descr: runs Jupyter notebook with your image and opens it in default web browser
 inputs:
   volumes_data_remote:
     descr: reference to a data volume
-  volumes_common_datasets_remote:
-    descr: reference to a common datasets volume
+  volumes_common_data_remote:
+    descr: reference to a common data volume
   volumes_code_remote:
     descr: reference to a code volume
   volumes_config_remote:
@@ -52,7 +52,7 @@ job:
     detach: True
     volumes:
       - "${{ inputs.volumes_data_remote }}:/project/data:rw"
-      - "${{ inputs.volumes_common_datasets_remote }}:/project/common_datasets:rw"
+      - "${{ inputs.volumes_common_data_remote }}:/project/common_data:rw"
       - "${{ inputs.volumes_code_remote }}:/project/modules:rw"
       - "${{ inputs.volumes_config_remote }}:/project/config:rw"
       - "${{ inputs.volumes_notebooks_remote }}:/project/notebooks:rw"
